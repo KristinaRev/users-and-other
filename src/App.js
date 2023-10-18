@@ -29,6 +29,7 @@ class App extends React.Component {
             ]
         }
         this.addUser = this.addUser.bind(this) //стандартный кусочек куда, где говорится о том, что в методе addUser можно использовать состояния
+        this.deleteUser = this.deleteUser.bind(this)
     }
 
     render() {
@@ -36,7 +37,7 @@ class App extends React.Component {
             <div className="App">
                 <Header title="Список пользователей" />
                 <main>
-                    <Users users={this.state.users}/>
+                    <Users users={this.state.users} onDelete={this.deleteUser}/>
                 </main>
                 <aside>
                     <AddUser onAdd={this.addUser}/>
@@ -49,6 +50,12 @@ class App extends React.Component {
         const id = this.state.users.length + 1
 
         this.setState({ users: [...this.state.users, { id, ...user}] }) //суть строки в том, что мы меняем список users и к текущему всему списку добавляем +1 новый объект, который состоит из id и всего того объекта, который передаётся тут в качестве параметра(user)(в качестве параметра мы получаем данные от пользователя  что он вводит в AddUser)
+    }
+
+    deleteUser(id) {
+        this.setState({
+            users: this.state.users.filter((el) => el.id !== id)
+        })
     }
 
 
