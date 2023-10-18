@@ -30,8 +30,34 @@ main {
 aside {
   width: 20%;
   margin-top: 50px;
-  margin-left: 5%;
   float: right;
+  margin-right: 100px;
+}
+
+aside form input:not([type="checkbox"]), aside form textarea, aside form button {
+  width: 90%;
+  padding: 15px 5%;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 15px;
+  border: 0;
+  color: lightyellow;
+  background-color: rgba(0, 0, 0, 0.25);
+  outline: none;
+  font-size: 15px;
+}
+
+aside form input[type="checkbox"] {
+  margin: 10px;
+}
+
+aside form button {
+  width: 100%;
+  cursor: pointer;
+  transition: transform 500ms ease;
+}
+
+aside form button:hover {
+  transform: scale(1.1);
 }
 
 main .user {
@@ -58,4 +84,5 @@ main .edit-icon {
 main .delete-icon:hover, main .edit-icon:hover {
   opacity: 0.5;
 }
+
 
